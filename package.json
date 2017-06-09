@@ -1,6 +1,6 @@
 {
   "name": "auth-template",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Client/server authentication template for MERN stack development",
   "license": "ISC",
   "author": "Alan Seto <alantseto@gmailcom>",

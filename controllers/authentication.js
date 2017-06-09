@@ -1,36 +1,27 @@
 const MongoClient = require('mongodb').MongoClient;
-const dotenv = require('dotenv');
 
 const User = require('../models/user');
 
-dotenv.load();
-
-const dbURI = `mongodb://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_URI}`;
-
-exports.signup = (req, res, next) => {
+exports.signUp = (req, res, next) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return res.status(422).send({ error: 'You must provide email and password' });
+    return res.status(422).send({ error: 'You must provide an email and password' });
   }
 
-  MongoClient.connect(dbURI, (err, database) => {
+  User.findOne({ email }, (err, existingUser) => {
     if (err) { return next(err); }
 
-    const Users = database.collection('Users');
+    if (existingUser) {
+      return res.status(422).send({ error: 'Email already is in use' });
+    }
 
-    Users.findOne({ email }, (err, existingUser) => {
+    const user = new User({ email, password });
+
+    user.save((err) => {
       if (err) { return next(err); }
 
-      if (existingUser) { res.status(422).send({ error: 'Email already taken' }); }
-
-      const user = new User({ email, password });
-
-      Users.save(user, (err) => {
-        if (err) { return next(err); }
-
-        database.close();
-      });
+      res.json({ status: 'Successfully signed up'});
     });
   });
 };

@@ -4,6 +4,7 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 
 const index = require('./routes/index');
@@ -12,6 +13,13 @@ const users = require('./routes/users');
 const app = express();
 
 dotenv.load();
+
+mongoose.connect(`mongodb://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_URI}`)
+const database = mongoose.connection;
+database.on('error', console.error.bind(console, 'Connection error: '));
+database.once('open', () => {
+  console.log('Connected correctly to mongodb server');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
