@@ -1,6 +1,6 @@
 {
   "name": "auth-template",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Client/server authentication template for MERN stack development",
   "license": "ISC",
   "author": "Alan Seto <alantseto@gmailcom>",
@@ -12,6 +12,7 @@
     "url": "git+ssh://git@github.com/setoalan/auth-template.git"
   },
   "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
