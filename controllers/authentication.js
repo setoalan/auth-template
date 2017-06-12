@@ -1,6 +1,18 @@
-const MongoClient = require('mongodb').MongoClient;
+const dotenv = require('dotenv');
+const jwt = require('jwt-simple');
 
 const User = require('../models/user');
+
+dotenv.load();
+
+const tokenForUser = (user) => {
+  const timestamp = new Date().getTime();
+  return jwt.encode({ userId: user.id, createdAt: timestamp }, process.env.TOKEN_SECRET);
+}
+
+exports.signin = (req, res, next) => {
+  res.send({ token: tokenForUser(req.user) });
+};
 
 exports.signUp = (req, res, next) => {
   const { email, password } = req.body;
@@ -21,7 +33,7 @@ exports.signUp = (req, res, next) => {
     user.save((err) => {
       if (err) { return next(err); }
 
-      res.json({ status: 'Successfully signed up'});
+      res.json({ token: tokenForUser(user) });
     });
   });
 };
