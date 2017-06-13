@@ -10,7 +10,7 @@ const tokenForUser = (user) => {
   return jwt.encode({ userId: user.id, createdAt: timestamp }, process.env.TOKEN_SECRET);
 }
 
-exports.signin = (req, res, next) => {
+exports.signIn = (req, res, next) => {
   res.send({ token: tokenForUser(req.user) });
 };
 
