@@ -1,9 +1,9 @@
 {
   "name": "auth-template",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Client/server authentication template for MERN stack development",
   "license": "ISC",
-  "author": "Alan Seto <alantseto@gmailcom>",
+  "author": "Alan Seto <alantseto@gmail.com>",
   "scripts": {
     "start": "nodemon ./bin/www"
   },
