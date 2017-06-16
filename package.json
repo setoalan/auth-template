@@ -1,16 +1,30 @@
 {
   "name": "auth-template",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.4.2",
+  "description": "Client/server authentication template for MERN stack development",
+  "license": "ISC",
+  "author": "Alan Seto <alantseto@gmail.com>",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/setoalan/auth-template.git"
   },
   "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
+    "dotenv": "^4.0.0",
     "express": "~4.15.2",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^4.10.4",
     "morgan": "~1.8.1",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0",
     "pug": "~2.0.0-rc.2",
     "serve-favicon": "~2.4.2"
   }
