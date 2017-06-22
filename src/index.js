@@ -1,11 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Router, Route, browserHistory } from 'react-router';
+
+import App from './components/app';
+
+import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
-import './index.css';
+
+const createStoreWithMiddleware = applyMiddleware()(createStore);
+const store = createStoreWithMiddleware(reducers);
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+      </Route>
+    </Router>
+  </Provider>,
   document.getElementById('root')
 );
 
