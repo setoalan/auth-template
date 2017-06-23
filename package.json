@@ -1,6 +1,6 @@
 {
   "name": "auth-template",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Client/server authentication template for MERN stack development",
   "license": "ISC",
   "author": "Alan Seto <alantseto@gmail.com>",
@@ -16,6 +16,7 @@
     "url": "git+ssh://git@github.com/setoalan/auth-template.git"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
@@ -35,6 +36,7 @@
     "react-redux": "^5.0.5",
     "react-router": "2.0.1",
     "redux": "^3.7.0",
+    "redux-form": "^6.8.0",
     "serve-favicon": "~2.4.2"
   },
   "devDependencies": {
