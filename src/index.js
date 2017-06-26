@@ -21,7 +21,7 @@ ReactDOM.render(
       </Route>
     </Router>
   </Provider>,
-  document.getElementById('root')
+  document.querySelector('.container')
 );
 
 registerServiceWorker();
