@@ -6,6 +6,7 @@ import { Router, Route, browserHistory } from 'react-router';
 
 import App from './components/app';
 import Signup from './components/signup';
+import Signin from './components/signin';
 
 import reducers from './reducers';
 import registerServiceWorker from './registerServiceWorker';
@@ -18,6 +19,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <Route path="signup" component={Signup} />
+        <Route path="signin" component={Signin} />
       </Route>
     </Router>
   </Provider>,
