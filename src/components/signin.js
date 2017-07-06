@@ -4,8 +4,7 @@ import * as actions from '../actions/index';
 
 class Signin extends Component {
   handleFormSubmit({ email, password }) {
-    console.log(email, password);
-    this.props.signinUser({ email, password });
+    actions.signinUser({ email, password });
   }
 
   renderAlert() {
@@ -14,7 +13,7 @@ class Signin extends Component {
         <div className="alert alert-danger">
           <strong>Oops!</strong> {this.props.errorMessage}
         </div>
-      )
+      );
     }
   }
 
