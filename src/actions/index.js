@@ -6,7 +6,7 @@ const ROOT_URL = 'http://localhost:3001';
 
 export function signupUser({ email, password }) {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/signup`, { email, password })
+    axios.post(`${ROOT_URL}/users/signup`, { email, password })
       .then((response) => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
@@ -20,7 +20,7 @@ export function signupUser({ email, password }) {
 
 export function signinUser({ email, password }) {
   return (dispatch) => {
-    axios.post(`${ROOT_URL}/signin`, { email, password })
+    axios.post(`${ROOT_URL}/users/signin`, { email, password })
       .then((response) => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
