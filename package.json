@@ -1,20 +1,26 @@
 {
   "name": "auth-template",
-  "version": "0.4.2",
+  "version": "0.12.0",
   "description": "Client/server authentication template for MERN stack development",
   "license": "ISC",
   "author": "Alan Seto <alantseto@gmail.com>",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "react-scripts start",
+    "api": "nodemon ./bin/www",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/setoalan/auth-template.git"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.3",
     "debug": "~2.6.3",
     "dotenv": "^4.0.0",
     "express": "~4.15.2",
@@ -25,7 +31,17 @@
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
-    "pug": "~2.0.0-rc.2",
+    "pug": "^2.0.0-rc.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router": "2.0.1",
+    "redux": "^3.7.0",
+    "redux-form": "^5.0.1",
+    "redux-thunk": "^2.2.0",
     "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.7"
   }
 }

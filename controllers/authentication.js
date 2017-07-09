@@ -1,6 +1,5 @@
 const dotenv = require('dotenv');
 const jwt = require('jwt-simple');
-
 const User = require('../models/user');
 
 dotenv.load();
@@ -8,7 +7,7 @@ dotenv.load();
 const tokenForUser = (user) => {
   const timestamp = new Date().getTime();
   return jwt.encode({ userId: user.id, createdAt: timestamp }, process.env.TOKEN_SECRET);
-}
+};
 
 exports.signIn = (req, res, next) => {
   res.send({ token: tokenForUser(req.user) });
@@ -25,7 +24,7 @@ exports.signUp = (req, res, next) => {
     if (err) { return next(err); }
 
     if (existingUser) {
-      return res.status(422).send({ error: 'Email already is in use' });
+      return res.status(422).send({ error: 'Email is in use' });
     }
 
     const user = new User({ email, password });
