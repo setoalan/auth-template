@@ -11,10 +11,15 @@ import Signin from './components/signin';
 import Signout from './components/signout';
 
 import reducers from './reducers';
-import registerServiceWorker from './registerServiceWorker';
+import { AUTH_USER } from './actions/types';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
+
+const token = localStorage.getItem('token');
+if (token) {
+  store.dispatch({ type: AUTH_USER });
+}
 
 ReactDOM.render(
   <Provider store={store}>
@@ -28,5 +33,3 @@ ReactDOM.render(
   </Provider>,
   document.querySelector('.container')
 );
-
-registerServiceWorker();
