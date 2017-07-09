@@ -24,11 +24,17 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-light">
+      <nav className="navbar navbar-light bg-faded rounded navbar-toggleable-md">
+        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#containerNavbar" aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <Link to="/" className="navbar-brand">auth-template</Link>
-        <ul className="nav navbar-nav">
-          {this.renderLinks()}
-        </ul>
+
+        <div className="collapse navbar-collapse" id="containerNavbar">
+          <ul className="navbar-nav mr-auto">
+            {this.renderLinks()}
+          </ul>
+        </div>
       </nav>
     );
   }
